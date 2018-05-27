@@ -1,7 +1,7 @@
 mlabtex
 =======
 
-mlabtex provides a rederer for latex code in mayavi.
+mlabtex provides a renderer for latex code in mayavi.
 
 Functions
 ---------
