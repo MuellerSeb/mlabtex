@@ -16,11 +16,12 @@ The following functions are provided:
 
    render_latex
    mlabtex
+   mlabimg
 """
 from __future__ import absolute_import
 
-from mlabtex.mlabtex import mlabtex, render_latex
+from mlabtex.core import mlabtex, render_latex, mlabimg
 
-__all__ = ["mlabtex", "render_latex"]
+__all__ = ["mlabtex", "render_latex", "mlabimg"]
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
