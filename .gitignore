@@ -10,3 +10,5 @@ docs/source/_templates/
 #_static
 #_templates
 #docs/
+test_mlabtex.py
+render.png

@@ -6,7 +6,6 @@ from __future__ import absolute_import, division, print_function
 
 import os
 import tempfile
-from six import BytesIO
 import numpy as np
 import matplotlib.pyplot as plt
 from mayavi import mlab
@@ -62,15 +61,12 @@ def render_latex(text, path, color=(0, 0, 0), dpi=1200, output='png'):
     plt.rc('text', usetex=True)
     fig = plt.figure(figsize=(0.001, 0.001))
     fig.text(0, 0, u'{}'.format(text), fontsize=6, color=color)
-    buf = BytesIO()
-    fig.savefig(buf, dpi=dpi,
+    fig.savefig(path, dpi=dpi,
                 transparent=True,
                 format=output,
                 bbox_inches='tight',
-                pad_inches=0.025)
+                pad_inches=0.02)
     plt.close(fig)
-    with open(path, 'wb') as im_file:
-        im_file.write(buf.getvalue())
 
 
 def mlabimg(x, y, z, path,
@@ -139,8 +135,7 @@ def mlabimg(x, y, z, path,
     img = reader()
     img.file_name = path
     img.update()
-    dim = img.data_extent
-    dim_x, dim_y = dim[1], dim[3]
+    dim_x, dim_y = img.data_extent[1:4:2]
     # create the texture from the image
     texture = tvtk.Texture(input_connection=img.output_port, interpolate=0)
     # create the surface points
@@ -226,11 +221,6 @@ def mlabtex(x, y, z, text,
 
     infront of them.
     '''
-    kwargs = {}
-    if figure is not None:
-        kwargs["figure"] = figure
-    if name is not None:
-        kwargs["name"] = name
     # create temporary file for the reference height of the letter "I"
     reffile = tempfile.NamedTemporaryFile(suffix=".png")
     render_latex(r"I", path=reffile.name, dpi=dpi)
@@ -247,7 +237,7 @@ def mlabtex(x, y, z, text,
     # loading image with tvtk
     surf = mlabimg(x, y, z, pngfile.name,
                    figure, name, opacity, orientation, scale,
-                   ref_y_extent=ref_y)
+                   typ="png", ref_y_extent=ref_y)
     # close temp file
     pngfile.close()
 
