@@ -23,11 +23,16 @@ Dependencies
 ------------
  - [NumPy](http://www.numpy.org)
  - [Mayavi](https://docs.enthought.com/mayavi/mayavi/)
+
+For rendering
+-------------
  - [matplotlib](https://matplotlib.org/)
- - [six](https://pythonhosted.org/six/)
+ - [sympy](https://www.sympy.org/)
+
 
 Example
 -------
+You can use it like the mlab.surf routine:
 
     from mayavi import mlab
     from mlabtex import mlabtex

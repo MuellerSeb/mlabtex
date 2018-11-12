@@ -24,4 +24,4 @@ from mlabtex.core import mlabtex, render_latex, mlabimg
 
 __all__ = ["mlabtex", "render_latex", "mlabimg"]
 
-__version__ = '0.1.1'
+__version__ = "0.1.2"
