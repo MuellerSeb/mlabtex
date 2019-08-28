@@ -1,6 +1,9 @@
 # mlabtex
 
 [![PyPI version](https://badge.fury.io/py/mlabtex.svg)](https://badge.fury.io/py/mlabtex)
+[![Build Status](https://travis-ci.org/MuellerSeb/mlabtex.svg?branch=master)](https://travis-ci.org/MuellerSeb/mlabtex)
+[![Coverage Status](https://coveralls.io/repos/github/MuellerSeb/mlabtex/badge.svg?branch=master)](https://coveralls.io/github/MuellerSeb/mlabtex?branch=master)
+[![Documentation Status](https://readthedocs.org/projects/mlabtex/badge/?version=latest)](https://mlabtex.readthedocs.io/en/latest/?badge=latest)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 
