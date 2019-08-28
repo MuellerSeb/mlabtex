@@ -1,5 +1,6 @@
 # mlabtex
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3380567.svg)](https://doi.org/10.5281/zenodo.3380567)
 [![PyPI version](https://badge.fury.io/py/mlabtex.svg)](https://badge.fury.io/py/mlabtex)
 [![Build Status](https://travis-ci.org/MuellerSeb/mlabtex.svg?branch=master)](https://travis-ci.org/MuellerSeb/mlabtex)
 [![Coverage Status](https://coveralls.io/repos/github/MuellerSeb/mlabtex/badge.svg?branch=master)](https://coveralls.io/github/MuellerSeb/mlabtex?branch=master)
