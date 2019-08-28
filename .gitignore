@@ -2,14 +2,10 @@
 *.orig
 *~
 .spyproject/
-__pycache__/
-docs/build/
-docs/source/_static/
-docs/source/_templates/
+htmlcov/
+__pycache__
 info/
-#_build
+docs/build
 #_static
 #_templates
 #docs/
-test_mlabtex.py
-render.png

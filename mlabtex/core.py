@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-mlabtex - A latex renderer for mayavi
-"""
+"""mlabtex: A latex renderer for mayavi."""
 from __future__ import absolute_import, division, print_function
 
 import os
@@ -28,12 +26,14 @@ IMREAD = {
 
 
 class RenderError(Exception):
+    """Render error."""
+
     pass
 
 
 class TmpFile(object):
     """
-    A closed temporary file class
+    A closed temporary file class.
 
     Attributes
     ----------
@@ -45,7 +45,7 @@ class TmpFile(object):
 
     def __init__(self, suffix="txt"):
         """
-        A closed temporary file
+        A closed temporary file.
 
         Parameter
         ---------
@@ -57,15 +57,17 @@ class TmpFile(object):
 
     @property
     def name(self):
+        """File name."""
         return self.file.name
 
     def close(self):
+        """Unlink the file."""
         os.unlink(self.name)
 
 
 def render_latex_mpl(text, path, color=(0, 0, 0), dpi=600, output="png"):
-    """
-    Renders LaTeX-formula into an image with matplotlib.
+    r"""
+    Render a LaTeX-formula into an image with matplotlib.
 
     Parameters
     ----------
@@ -88,10 +90,10 @@ def render_latex_mpl(text, path, color=(0, 0, 0), dpi=600, output="png"):
 
     Try to set the dpi higher. (1200 recomended)
 
-    If big symbols like ``\\int`` or ``\\sum`` don't show up properly,
+    If big symbols like ``\int`` or ``\sum`` don't show up properly,
     try setting a
 
-        ``\\displaystyle``
+        ``\displaystyle``
 
     infront of them.
     """
@@ -113,7 +115,7 @@ def render_latex_mpl(text, path, color=(0, 0, 0), dpi=600, output="png"):
 
 
 def render_latex_sympy(text, path, color=(0, 0, 0), dpi=600, output="png"):
-    """
+    r"""
     Renders LaTeX-formula into an image with sympy.
 
     Parameters
@@ -137,10 +139,10 @@ def render_latex_sympy(text, path, color=(0, 0, 0), dpi=600, output="png"):
 
     Try to set the dpi higher. (1200 recomended)
 
-    If big symbols like ``\\int`` or ``\\sum`` don't show up properly,
+    If big symbols like ``\int`` or ``\sum`` don't show up properly,
     try setting a
 
-        ``\\displaystyle``
+        ``\displaystyle``
 
     infront of them.
     """
@@ -196,7 +198,7 @@ def render_latex_sympy(text, path, color=(0, 0, 0), dpi=600, output="png"):
 
 
 def render_latex(text, path, color=(0, 0, 0), dpi=600, output="png"):
-    """
+    r"""
     Renders LaTeX-formula into an image.
 
     Parameters
@@ -220,10 +222,10 @@ def render_latex(text, path, color=(0, 0, 0), dpi=600, output="png"):
 
     Try to set the dpi higher. (1200 recomended)
 
-    If big symbols like ``\\int`` or ``\\sum`` don't show up properly,
+    If big symbols like ``\int`` or ``\sum`` don't show up properly,
     try setting a
 
-        ``\\displaystyle``
+        ``\displaystyle``
 
     infront of them.
 
@@ -262,8 +264,8 @@ def mlabimg(
     """
     Render image files in mayavi. Analogous to mlab.text3d.
 
-    Parameter
-    ---------
+    Parameters
+    ----------
     x : float
         x position of the text.
     y : float
@@ -298,8 +300,8 @@ def mlabimg(
         Reference vertical extent of the image to scale to.
         If set to ``None``, the image extent itself is used. Default: None
 
-    Return
-    ------
+    Returns
+    -------
     surf : Surf
         Mayavi ``Surf`` class with the rendered image as texture.
     """
@@ -323,7 +325,9 @@ def mlabimg(
     # create the surface points
     if ref_y_extent is None:
         ref_y_extent = dim_y
-    surfx, surfy = np.mgrid[0 : dim_x + 1, 0 : dim_y + 1] * scale / ref_y_extent
+    surfx, surfy = (
+        np.mgrid[0 : dim_x + 1, 0 : dim_y + 1] * scale / ref_y_extent
+    )
     surfz = np.zeros_like(surfx)
     # create the surface
     surf = mlab.surf(
@@ -359,11 +363,11 @@ def mlabtex(
     scale=1.0,
     dpi=1200,
 ):
-    """
+    r"""
     Render for matplotlib like text in mayavi. Analogous to mlab.text3d.
 
-    Parameter
-    ---------
+    Parameters
+    ----------
     x : float
         x position of the text.
     y : float
@@ -392,8 +396,8 @@ def mlabtex(
     dpi : int, optional
         Used dpi. Default: 1200
 
-    Return
-    ------
+    Returns
+    -------
     surf : Surf
         Mayavi ``Surf`` class with the rendered text as texture.
 
@@ -405,10 +409,10 @@ def mlabtex(
 
     Try to set the dpi higher. (1200 recomended)
 
-    If big symbols like ``\\int`` or ``\\sum`` don't show up properly,
+    If big symbols like ``\int`` or ``\sum`` don't show up properly,
     try setting a
 
-        ``\\displaystyle``
+        ``\displaystyle``
 
     infront of them.
     """

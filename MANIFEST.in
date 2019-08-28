@@ -1,0 +1,6 @@
+include MANIFEST.in
+include setup.py
+recursive-include mlabtex *.py
+recursive-include docs/source *
+include docs/Makefile docs/requirements.txt
+include LICENSE
