@@ -157,6 +157,8 @@ def render_latex_sympy(text, path, color=(0, 0, 0), dpi=600, output="png"):
         + os.linesep
         + r"\usepackage{amsmath}"
         + os.linesep
+        + r"\usepackage{amssymb}"
+        + os.linesep
         + r"\usepackage{amsfonts}"
         + os.linesep
         + r"\usepackage{helvet}"
